@@ -1,7 +1,7 @@
 {
 	"name": "@cloudparker/easy-window-watcher",
 	"description": "An easy method to verify if a JavaScript library has been loaded and is accessible in the window object.",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"license": "MIT",
 	"author": "cloudparker.com",
 	"keywords": [
@@ -10,7 +10,7 @@
 		"window",
 		"watcher"
 	],
-	"repository": "",
+	"repository": "https://github.com/paramanandapradhan/easy-window-watcher",
 	"homepage": "https://cloudparker.com",
 	"scripts": {
 		"dev": "vite dev",
