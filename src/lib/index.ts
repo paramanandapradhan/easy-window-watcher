@@ -3,6 +3,10 @@ declare const window: any;
 
 class WindowWatcher {
     private key: string
+    private interval: number = 10;
+    private maxWait: number = 5 * 60 * 1000; // 5 min wait time
+    private waitCount: number = 0;
+
     constructor(windowKey: string) {
         this.key = windowKey;
     }
@@ -51,9 +55,17 @@ class WindowWatcher {
         if (this.checkKey(window, this.key)) {
             resolve(this.getValue(window, this.key))
         } else {
-            setTimeout(() => {
-                this.check(resolve);
-            }, 10);
+            this.waitCount += this.interval;
+
+            // Max wait time is 5 minutes;
+            if (this.waitCount < this.maxWait) {
+                setTimeout(() => {
+                    this.check(resolve);
+                }, this.interval);
+            } else {
+                resolve(undefined)
+            }
+
         }
     }
 
@@ -65,7 +77,7 @@ class WindowWatcher {
 }
 
 async function watchWindowValue<T>(key: string) {
-    return await new WindowWatcher(key).watch<T>();
+    return await new WindowWatcher(key).watch<T | undefined>();
 }
 
 export default watchWindowValue;
