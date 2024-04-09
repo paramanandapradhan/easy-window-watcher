@@ -58,9 +58,8 @@ export function getValue(obj: any, path: string) {
     return current;
 }
 
-async function watchWindowValue<T>(key: string) {
+export async function watchWindowValue<T>(key: string) {
     return await new WindowWatcher(key).watch<T | undefined>();
 }
 
-export default watchWindowValue;
 

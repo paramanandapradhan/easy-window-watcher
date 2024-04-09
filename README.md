@@ -9,7 +9,7 @@ npm i @cloudparker/easy-window-watcher --save-dev
 # Usage
 
 ```js
-import watchWindowValue from '@cloudparker/easy-window-watcher';
+import { watchWindowValue } from '@cloudparker/easy-window-watcher';
 
 // ...
 

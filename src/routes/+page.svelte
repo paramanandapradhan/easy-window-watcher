@@ -1,9 +1,9 @@
 <script lang="ts">
-	import watchWindowValue from '$lib/index.js';
+	import { watchWindowValue } from '$lib/index.js';
 	import { onMount } from 'svelte';
 
 	onMount(() => {
-        watchWindowValue('gapi').then((client) => {
+		watchWindowValue('gapi').then((client) => {
 			console.log('gapi', client);
 		});
 
