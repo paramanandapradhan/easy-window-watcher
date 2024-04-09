@@ -5,23 +5,42 @@ class WindowWatcher {
     private key: string
     constructor(windowKey: string) {
         this.key = windowKey;
-
     }
 
-    public watch<T>(): Promise<T> {
-        return new Promise((resolve: any) => {
-            this.check(resolve);
-        })
+    private checkKey(obj: any, path: string) {
+        // Split the path into an array of keys
+        const keys = path.split('.');
+        // Start with the initial object
+        let current = obj;
+
+        // Traverse the object using the keys
+        for (const key of keys) {
+            if (current[key] === undefined) {
+                // If the key does not exist, return false
+                return false;
+            }
+            // Move to the next level in the object
+            current = current[key];
+        }
+
+        // If all keys are found, return true
+        return true;
     }
 
-    check(resolve: any) {
-        if (window && window[this.key]) {
+    private check(resolve: any) {
+        if (this.checkKey(window, this.key)) {
             resolve(window[this.key])
         } else {
             setTimeout(() => {
                 this.check(resolve);
             }, 10);
         }
+    }
+
+    public watch<T>(): Promise<T> {
+        return new Promise((resolve: any) => {
+            this.check(resolve);
+        })
     }
 }
 
