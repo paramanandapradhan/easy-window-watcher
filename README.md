@@ -18,4 +18,14 @@ watchWindowValue('Cropper')
         // This will be resolve when CropperJs script loaded and the reference is available window
         // Do use of window.Cropper now.
     });
+
+//...
+
+watchWindowValue('gapi').then((client) => {
+    console.log('gapi', client);
+});
+
+watchWindowValue('google.accounts').then((acc) => {
+    console.log('google.accounts', acc);
+});
 ```
