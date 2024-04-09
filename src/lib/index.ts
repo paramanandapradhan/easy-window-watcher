@@ -3,7 +3,7 @@ declare const window: any;
 
 class WindowWatcher {
     private key: string
-    private interval: number = 10;
+    private interval: number = 100;
     private maxWait: number = 5 * 60 * 1000; // 5 min wait time
     private waitCount: number = 0;
 
