@@ -1,7 +1,7 @@
 {
 	"name": "@cloudparker/easy-window-watcher",
 	"description": "An easy method to verify if a JavaScript library has been loaded and is accessible in the window object.",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"license": "MIT",
 	"author": "cloudparker.com",
 	"keywords": [
@@ -41,9 +41,9 @@
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",
-		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/adapter-static": "^3.0.4",
 		"@sveltejs/kit": "^2.0.0",
+		"@sveltejs/package": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^3.1.1",
 		"@types/eslint": "^9.6.0",
 		"eslint": "^9.0.0",
